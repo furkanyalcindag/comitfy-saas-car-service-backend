@@ -2,6 +2,8 @@ import uuid as uuid
 from django.contrib.auth.models import User
 from django.db import models
 
+from carService.models.Organization import Organization
+
 
 class Profile(models.Model):
     MALE = 'Erkek'
@@ -33,3 +35,4 @@ class Profile(models.Model):
     taxOffice = models.CharField(max_length=255, null=True, blank=True)
     isDeleted = models.BooleanField(default=False)
     isSendMail = models.BooleanField(default=False)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)

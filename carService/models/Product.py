@@ -2,10 +2,12 @@ import uuid as uuid
 from django.db import models
 
 from carService.models.Brand import Brand
+from carService.models.Organization import Organization
 
 
 class Product(models.Model):
     barcodeNumber = models.CharField(max_length=255)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=255, null=True)
     quantity = models.IntegerField(default=0)

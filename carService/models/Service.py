@@ -4,6 +4,7 @@ from django.db import models
 from carService.models import Profile
 from carService.models.Camera import Camera
 from carService.models.Car import Car
+from carService.models.Organization import Organization
 from carService.models.ServiceType import ServiceType
 
 
@@ -28,4 +29,5 @@ class Service(models.Model):
     complaint = models.CharField(max_length=500, blank=True, null=True)
     responsiblePerson = models.CharField(max_length=100, blank=True, null=True)
     receiverPerson = models.CharField(max_length=100, blank=True, null=True)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     isDeleted = models.BooleanField(default=False)

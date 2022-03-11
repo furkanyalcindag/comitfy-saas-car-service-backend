@@ -2,9 +2,11 @@ import uuid as uuid
 from django.db import models
 
 from carService.models import CheckingAccount
+from carService.models.Organization import Organization
 
 
 class Installment(models.Model):
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     checkingAccount = models.ForeignKey(CheckingAccount, on_delete=models.CASCADE, null=True, blank=True)
     creationDate = models.DateTimeField(auto_now_add=True)

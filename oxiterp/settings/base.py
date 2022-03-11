@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware',  # Add here
+    'carService.middleware.SimpleMiddleware'
 
 ]
 
